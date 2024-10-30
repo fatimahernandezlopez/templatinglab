@@ -19,6 +19,12 @@ class SolidIngredient implements Ingredient{
     public double getQuantity(){
         return _quantity;
     }
+
+    public String toString(){
+        return "Name: " + _name + "\nQuantity: " + _quantity;
+    }
+
+
 }
 
 
@@ -35,6 +41,10 @@ class LiquidIngredient implements Ingredient{
     }
     public double getQuantity(){
         return _quantity;
+    }
+
+    public String toString(){
+        return "Name: " + _name + "\nQuantity: " + _quantity;
     }
 }
 
@@ -55,12 +65,8 @@ class Recipe<T extends Ingredient> {
         for(T t : _ingredients){
             System.out.println(t);
         }
-
     }
-
-
 }
-
 
 
 public class Main {
@@ -68,10 +74,8 @@ public class Main {
 
         Recipe<Ingredient> r = new Recipe<>("Cookies", 12);
         SolidIngredient s = new SolidIngredient("sugar", 3);
-        r.addIngredient();
-
-
-
+        r.addIngredient(s);
+        r.print();
 
 
     }
